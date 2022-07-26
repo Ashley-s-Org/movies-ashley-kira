@@ -1,6 +1,5 @@
 export default function MoviesView(props) {
-    return `<h1>Movies</h1>`;
-}
+    return `
 
 export async function MoviesEvents() {
     let movie = '';
@@ -15,4 +14,27 @@ export async function MoviesEvents() {
         }).then(function(data) {
             console.log(data);
     });
+
+<div class="container">
+    <h1>Quotes</h1>
+    <div class="card">
+        <div class="card-body">
+            <p class="dog-fact">ABC</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="dog-fact">ABC</p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <p class="dog-fact"></p>
+        </div>
+    </div>
+</div>
+`;
+}
+
+export function MoviesEvents() {
 }
