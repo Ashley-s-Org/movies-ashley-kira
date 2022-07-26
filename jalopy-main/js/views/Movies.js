@@ -24,7 +24,7 @@ export default function moviesView(props) {
 				  <div class="modal-dialog" role="document">
 				    <div class="modal-content">
 				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				        <h5 class="modal-title" id="exampleModalLabel">Add a Movie:</h5>
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				          <span aria-hidden="true">&times;</span>
 				        </button>
@@ -32,29 +32,29 @@ export default function moviesView(props) {
 				      <div class="modal-body">
 				        <form id= "create-form">
 				          <div class="form-group">
-				            <label for="titleInput">Tittle</label>
-				            <input type="text" class="form-control" id="titleInput"
-				                   placeholder="Enter title">
+				            <label for="titleInput">Title:</label>
+				            <input type="text" class="form-control" id="newMovieText"
+				                   placeholder="Requiem for a Dream">
 				          </div>
 				          <div class="form-group">
-				            <label for="directorInput">Director</label>
-				            <input type="text" class="form-control" id="directorInput"
-				                   placeholder="Director">
+				            <label for="directorInput">Director:</label>
+				            <input type="text" class="form-control" id="newDirectorText"
+				                   placeholder="Darren Aronofsky">
 				          </div>
 				          <div class="form-group">
-				            <label for="yearInput">Year Movie Made</label>
-				            <input type="text" class="form-control" id="yearInput"
-				                   placeholder="Enter the year the movie was made">
+				            <label for="yearInput">Release Year:</label>
+				            <input type="text" class="form-control" id="newYearText"
+				                   placeholder="2000">
 				          </div>
 				          <div class="form-group">
-				            <label for="ratingInput">Rating of the Movie</label>
-				            <input type="text" class="form-control" id="ratingInput"
-				                   placeholder="Enter the Rating">
+				            <label for="ratingInput">MPA Rating:</label>
+				            <input type="text" class="form-control" id="newRatingText"
+				                   placeholder="R">
 				          </div>
 				        </form>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-primary" id="add-movie-btn">Add a new movie!</button>
+				        <button type="button" class="btn" id="addMovieBtn">Add Film</button>
 				      </div>
 				    </div>
 				  </div>
@@ -84,66 +84,64 @@ function addMovies(movies) {
 }
 
 // ATTACH JS TO VIEW SCREEN
-export function MoviesEvents() {
-
-
-}
-// EVENT LISTENER FOR ADD NEW MOVIE BUTTON
-export function addNewQuoteEvent() {
-    const addMovieBtn = document.querySelector('#addMovieBtn');
-    addBtn.addEventListener('click', addNewMovie);
-}
-
-// // FUNCTION TO ADD A NEW MOVIE FROM FORM INPUT
-// function addNewMovie() {
-    // USE .trim() TO TRIM WHITESPACE FROM A TEXT INPUT WHEN VALIDATING
-    // const titleInput = document.querySelector('#newMovieText');
-    // const title = titleInput.value.trim();
-    // const directorInput = document.querySelector('#newDirectorText');
-    // const director = directorInput.value.trim();
-    // const yearInput = document.querySelector('#newYearText');
-    // const year = yearInput.value.trim();
-    // const ratingInput = document.querySelector('#newRatingText');
-    // const rating = ratingInput.value.trim();
+// export function MoviesEvents() {
 //
-//     if (title.length < 1) {
-//         // ADD ALERT OF SHAKE FUNCTION HERE FOR VALIDATION IF BLANK
-//         titleInput.classList.add('inputError');
-//         console.log('error');
-//         return;
-//     }
-//     if (director.length < 1) {
-//         directorInput.classList.add('inputError');
-//         console.log('error');
-//         return;
-//     }
-//     if (year.length < 1) {
-//         yearInput.classList.add('inputError');
-//         console.log('error');
-//         return;
-//     }
-//     if (rating.length < 1) {
-//         ratingInput.classList.add('inputError');
-//         console.log('error');
-//         return;
-//     }
-//     const requestOpts = {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             // 'Authorization': QUOTES_API_KEY
-//         },
-//         // CONVERT OBJECT INTO STRING ELEMENT FOR FETCH REQUEST
-//         body: JSON.stringify([{movie}])
-//     }
-//     fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
-//         .then(function (response) {
-//             if (!response.ok) {
-//                 // LOG ERROR FOR QUOTE
-//             } else {
-//                 // ADD QUOTE & REDIRECT WITHIN VIEW
-//                 createView('/movies');
-//             }
-//         });
 // }
+
+// EVENT LISTENER FOR ADD NEW MOVIE BUTTON
+export function MoviesEvents() {
+    const addMovieBtn = document.querySelector('#addMovieBtn');
+    addMovieBtn.addEventListener('click', addNewMovie);
+}
+
+// FUNCTION TO ADD A NEW MOVIE FROM FORM INPUT
+function addNewMovie() {
+    const titleInput = document.querySelector('#newMovieText');
+    const title = titleInput.value.trim();
+    const directorInput = document.querySelector('#newDirectorText');
+    const director = directorInput.value.trim();
+    const yearInput = document.querySelector('#newYearText');
+    const year = yearInput.value.trim();
+    const ratingInput = document.querySelector('#newRatingText');
+    const rating = ratingInput.value.trim();
+
+    if (title.length < 1) {
+        // VALIDATION ALERT IF BLANK
+        titleInput.classList.add('inputError');
+        console.log('error');
+        return;
+    }
+    if (director.length < 1) {
+        directorInput.classList.add('inputError');
+        console.log('error');
+        return;
+    }
+    if (year.length < 1) {
+        yearInput.classList.add('inputError');
+        console.log('error');
+        return;
+    }
+    if (rating.length < 1) {
+        ratingInput.classList.add('inputError');
+        console.log('error');
+        return;
+    }
+    const requestOpts = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // CONVERT OBJECT INTO STRING ELEMENT FOR FETCH REQUEST
+        body: JSON.stringify([{movies}])
+    }
+    fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
+        .then(function (response) {
+            if (!response.ok) {
+                // LOG ERROR FOR MOVIE SUBMISSION
+            } else {
+                // ADD MOVIE & REDIRECT WITHIN VIEW
+                createView('/movies');
+            }
+        });
+}
 
