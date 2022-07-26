@@ -1,3 +1,4 @@
+// FETCH REQUEST FOR GLITCH MOVIES API
 (async function() {
 	let movie = '';
 	fetch('https://glitch.com/edit/#!/ballistic-snapdragon-silica')
