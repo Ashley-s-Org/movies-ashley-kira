@@ -106,7 +106,7 @@ function addNewMovie() {
     const rating = ratingInput.value.trim();
 
     if (title.length < 1) {
-        // ADD ALERT OF SHAKE FUNCTION HERE FOR VALIDATION IF BLANK
+        // VALIDATION ALERT IF BLANK
         titleInput.classList.add('inputError');
         console.log('error');
         return;
@@ -137,9 +137,9 @@ function addNewMovie() {
     fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
         .then(function (response) {
             if (!response.ok) {
-                // LOG ERROR FOR QUOTE
+                // LOG ERROR FOR MOVIE SUBMISSION
             } else {
-                // ADD QUOTE & REDIRECT WITHIN VIEW
+                // ADD MOVIE & REDIRECT WITHIN VIEW
                 createView('/movies');
             }
         });
