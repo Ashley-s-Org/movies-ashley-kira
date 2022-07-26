@@ -14,11 +14,51 @@ export default function moviesView(props) {
 		<main>
 			<div id="movies-div">
 				${addMovies(props.movies)}
-<!--				 DIV TO ADD NEW MOVIE-->
-<!--				<div id="new-movie-div">-->
-<!--					<input placeholder="Enter new movie here..." id="newMovieText">-->
-<!--					<button id="addBtn" type="button" value="+">+</button>-->
-<!--				</div>-->
+<!--				 DIV CONTAINING BUTTON TO ADD NEW MOVIE-->
+				<div id="new-movie-div">
+					<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#movieModal">+</button>
+<!--					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>-->
+				</div>
+<!--				DIV CONTAINING MOVIE MODAL FORM-->
+				<div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <form id= "create-form">
+				          <div class="form-group">
+				            <label for="titleInput">Tittle</label>
+				            <input type="text" class="form-control" id="titleInput"
+				                   placeholder="Enter title">
+				          </div>
+				          <div class="form-group">
+				            <label for="directorInput">Director</label>
+				            <input type="text" class="form-control" id="directorInput"
+				                   placeholder="Director">
+				          </div>
+				          <div class="form-group">
+				            <label for="yearInput">Year Movie Made</label>
+				            <input type="text" class="form-control" id="yearInput"
+				                   placeholder="Enter the year the movie was made">
+				          </div>
+				          <div class="form-group">
+				            <label for="ratingInput">Rating of the Movie</label>
+				            <input type="text" class="form-control" id="ratingInput"
+				                   placeholder="Enter the Rating">
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-primary" id="add-movie-btn">Add a new movie!</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 		</main>
 	`;
@@ -48,23 +88,23 @@ export function MoviesEvents() {
 
 
 }
-// // EVENT LISTENER FOR ADD NEW MOVIE BUTTON
-// export function addNewQuoteEvent() {
-//     const addBtn = document.querySelector('#addBtn');
-//     addBtn.addEventListener('click', addNewMovie);
-// }
-//
+// EVENT LISTENER FOR ADD NEW MOVIE BUTTON
+export function addNewQuoteEvent() {
+    const addMovieBtn = document.querySelector('#addMovieBtn');
+    addBtn.addEventListener('click', addNewMovie);
+}
+
 // // FUNCTION TO ADD A NEW MOVIE FROM FORM INPUT
-// function addNewQuote() {
-//     // USE .trim() TO TRIM WHITESPACE FROM A TEXT INPUT WHEN VALIDATING
-//     const titleInput = document.querySelector('#newMovieText');
-//     const title = titleInput.value.trim();
-//     const directorInput = document.querySelector('#newDirectorText');
-//     const director = directorInput.value.trim();
-//     const yearInput = document.querySelector('#newYearText');
-//     const year = yearInput.value.trim();
-//     const ratingInput = document.querySelector('#newRatingText');
-//     const rating = ratingInput.value.trim();
+// function addNewMovie() {
+    // USE .trim() TO TRIM WHITESPACE FROM A TEXT INPUT WHEN VALIDATING
+    // const titleInput = document.querySelector('#newMovieText');
+    // const title = titleInput.value.trim();
+    // const directorInput = document.querySelector('#newDirectorText');
+    // const director = directorInput.value.trim();
+    // const yearInput = document.querySelector('#newYearText');
+    // const year = yearInput.value.trim();
+    // const ratingInput = document.querySelector('#newRatingText');
+    // const rating = ratingInput.value.trim();
 //
 //     if (title.length < 1) {
 //         // ADD ALERT OF SHAKE FUNCTION HERE FOR VALIDATION IF BLANK
