@@ -22,4 +22,5 @@ export default function MoviesView(props) {
 `;
 }
 export function MoviesEvents() {
+
 }
