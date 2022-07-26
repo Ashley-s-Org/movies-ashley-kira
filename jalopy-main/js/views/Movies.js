@@ -46,6 +46,7 @@ function addMovies(movies) {
 // ATTACH JS TO VIEW SCREEN
 export function MoviesEvents() {
 
+
 }
 // // EVENT LISTENER FOR ADD NEW MOVIE BUTTON
 // export function addNewQuoteEvent() {
@@ -105,3 +106,4 @@ export function MoviesEvents() {
 //             }
 //         });
 // }
+
