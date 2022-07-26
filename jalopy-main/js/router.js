@@ -73,7 +73,14 @@ export default function router(URI) {
         },
         '/movies': {
             returnView: MoviesView,
-            state: {},
+            state: {
+                movies: {
+                    url: "https://ballistic-snapdragon-silica.glitch.me/movies",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            },
             uri: '/movies',
             title: 'Movies',
             viewEvent: MoviesEvents
