@@ -16,7 +16,7 @@ export default function moviesView(props) {
 				${addMovies(props.movies)}
 <!--				 DIV CONTAINING BUTTON TO ADD NEW MOVIE-->
 				<div id="new-movie-div">
-					<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#movieModal">+</button>
+					<button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#movieModal">Add a Film</button>
 <!--					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>-->
 				</div>
 <!--				DIV CONTAINING MOVIE MODAL FORM-->
@@ -25,9 +25,9 @@ export default function moviesView(props) {
 				        <div class="modal-content">
 				            <div class="modal-header">
                                 <h5 class="modal-title" id="movieModalLabel">Add a Film:</h5>
-                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+<!--                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">-->
+<!--                                    <span aria-hidden="true">&times;</span>-->
+<!--                                </button>-->
                             </div>
                             <div class="modal-body">
                                 <form id= "create-form">
@@ -55,8 +55,47 @@ export default function moviesView(props) {
 				        </div>
 				    </div>
 				</div>
+                <!-- div for edit movie modal				-->
+				<div id="edit-movies">
+				    <div class="modal fade" id="editMovieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				    <div class="modal-dialog" role="document">
+				        <div class="modal-content">
+				            <div class="modal-header">
+                                <h5 class="modal-title" id="movieModalLabel">Edit a Film:</h5>
+<!--                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">-->
+<!--                                    <span aria-hidden="true">&times;</span>-->
+<!--                                </button>-->
+                            </div>
+                            <div class="modal-body">
+                                <form id= "create-form">
+                                    <div class="form-group">
+                                        <label for="titleInput">Title:</label>
+                                        <input type="text" class="form-control" id="editMovieText" placeholder="Requiem for a Dream">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="directorInput">Director:</label>
+                                        <input type="text" class="form-control" id="editDirectorText" placeholder="Darren Aronofsky">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="yearInput">Release Year:</label>
+                                        <input type="text" class="form-control" id="editYearText" placeholder="2000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ratingInput">MPA Rating:</label>
+                                        <input type="text" class="form-control" id="editRatingText" placeholder="R">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" data-bs-dismiss="modal" id="addEditedMovieBtn">Add Edited Film</button>
+                            </div>
+				        </div>
+				    </div>
+				</div>
+                </div>
 			</div>
 		</main>
+<!--		${addEventListenersEdit(props.movies)}-->
 	`;
     return html;
 }
@@ -66,6 +105,7 @@ function addMovies(movies) {
     let html = '';
     // FOR OF LOOP TO SORT EACH MOVIE AND ITS DETAILS INTO A CARD
     for (const movie of movies) {
+
         html += `
 				<div class="movieCard">
 					<p class="title">${movie.title}</p>
@@ -73,9 +113,13 @@ function addMovies(movies) {
 					<p class="year">${movie.year}</p>
 					<p class="rating">${movie.rating}</p>
 					<p class="id">${movie.id}</p>
+					<button class="btn btn-primary editBtn" id="movieEditBtn${movie.id}" type="button" data-bs-toggle="modal" data-bs-target="#editMovieModal" data-bs-title=" " >edit film</button>
+					<button class="btn btn-warning" id="movieDeleteBtn" type="button">Delete this film</button>
+
 				</div>
 		`;
     }
+
     return html;
 }
 
@@ -83,6 +127,50 @@ function addMovies(movies) {
 export function MoviesEvents() {
     const addMovieBtn = document.querySelector('#addMovieBtn');
     addMovieBtn.addEventListener('click', addNewMovie);
+
+    // const editMovieBtn = document.querySelector('#movieEditBtn');
+    // editMovieBtn.addEventListener('click', editMovie );
+    addEventListenersEdit()
+}
+
+function addEventListenersEdit(){
+   const editBtns = document.querySelectorAll('.editBtn')
+    editBtns.forEach(function (btn) {
+        btn.addEventListener("click", function (event) {
+
+            console.log("edit clicked");
+
+            const cardParent = this.parentElement;
+            const movieTitle = cardParent.children[0].innerHTML;
+            const movieDirector = cardParent.children[1].innerHTML;
+            const movieYear = cardParent.children[2].innerHTML;
+            const movieRating = cardParent.children[3].innerHTML;
+            const movieId = cardParent.children[4].innerHTML;
+            // console.log(`
+            // ${movieTitle} ${movieDirector} ${movieYear} ${movieRating} ${movieId}
+            // `);
+            document.querySelector("#editMovieText").value = movieTitle;
+
+            let editModal = document.querySelector("#editMovieModal")
+            editModal.addEventListener('show.bs.modal', function (event) {
+                let editbtn = event.relatedTarget;
+                let title = editbtn.getAttribute('data-bs-title');
+                const titleInput = editMovieModal.querySelector("movieModalLabel")
+            })
+        })
+    })
+
+
+    // for (const movie of movies) {
+    //     let editButton = document.getElementById(`movieEditBtn${movie.id}`)
+    //     console.log("this log" + editButton);
+    //     // editButton.addEventListener('click', editMovie)
+    // }
+}
+
+//function to edit movie
+function editMovie() {
+alert("it's working");
 }
 
 // FUNCTION TO ADD A NEW MOVIE FROM FORM INPUT
@@ -95,6 +183,7 @@ function addNewMovie() {
     const year = yearInput.value.trim();
     const ratingInput = document.querySelector('#newRatingText');
     const rating = ratingInput.value.trim();
+
 
     if (title.length < 1) {
         // VALIDATION ALERT IF BLANK
