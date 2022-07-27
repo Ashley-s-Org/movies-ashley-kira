@@ -50,7 +50,7 @@ export default function moviesView(props) {
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn" id="addMovieBtn">Add Film</button>
+                                <button type="button" class="btn" data-bs-dismiss="modal" id="addMovieBtn">Add Film</button>
                             </div>
 				        </div>
 				    </div>
@@ -117,14 +117,19 @@ function addNewMovie() {
         console.log('error');
         return;
     }
+    const newMovie = {
+        title, director, year, rating
+    }
     const requestOpts = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         // CONVERT OBJECT INTO STRING ELEMENT FOR FETCH REQUEST
-        body: JSON.stringify([{movies}])
+        body: JSON.stringify(newMovie)
     }
+
+    console.log('hello, earthling');
     fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
         .then(function (response) {
             if (!response.ok) {
