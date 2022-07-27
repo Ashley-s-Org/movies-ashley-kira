@@ -21,43 +21,39 @@ export default function moviesView(props) {
 				</div>
 <!--				DIV CONTAINING MOVIE MODAL FORM-->
 				<div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				  <div class="modal-dialog" role="document">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <h5 class="modal-title" id="exampleModalLabel">Add a Movie:</h5>
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				          <span aria-hidden="true">&times;</span>
-				        </button>
-				      </div>
-				      <div class="modal-body">
-				        <form id= "create-form">
-				          <div class="form-group">
-				            <label for="titleInput">Title:</label>
-				            <input type="text" class="form-control" id="newMovieText"
-				                   placeholder="Requiem for a Dream">
-				          </div>
-				          <div class="form-group">
-				            <label for="directorInput">Director:</label>
-				            <input type="text" class="form-control" id="newDirectorText"
-				                   placeholder="Darren Aronofsky">
-				          </div>
-				          <div class="form-group">
-				            <label for="yearInput">Release Year:</label>
-				            <input type="text" class="form-control" id="newYearText"
-				                   placeholder="2000">
-				          </div>
-				          <div class="form-group">
-				            <label for="ratingInput">MPA Rating:</label>
-				            <input type="text" class="form-control" id="newRatingText"
-				                   placeholder="R">
-				          </div>
-				        </form>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn" id="addMovieBtn">Add Film</button>
-				      </div>
+				    <div class="modal-dialog" role="document">
+				        <div class="modal-content">
+				            <div class="modal-header">
+                                <h5 class="modal-title" id="movieModalLabel">Add a Film:</h5>
+                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id= "create-form">
+                                    <div class="form-group">
+                                        <label for="titleInput">Title:</label>
+                                        <input type="text" class="form-control" id="newMovieText" placeholder="Requiem for a Dream">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="directorInput">Director:</label>
+                                        <input type="text" class="form-control" id="newDirectorText" placeholder="Darren Aronofsky">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="yearInput">Release Year:</label>
+                                        <input type="text" class="form-control" id="newYearText" placeholder="2000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ratingInput">MPA Rating:</label>
+                                        <input type="text" class="form-control" id="newRatingText" placeholder="R">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn" id="addMovieBtn">Add Film</button>
+                            </div>
+				        </div>
 				    </div>
-				  </div>
 				</div>
 			</div>
 		</main>
@@ -82,11 +78,6 @@ function addMovies(movies) {
     }
     return html;
 }
-
-// ATTACH JS TO VIEW SCREEN
-// export function MoviesEvents() {
-//
-// }
 
 // EVENT LISTENER FOR ADD NEW MOVIE BUTTON
 export function MoviesEvents() {
