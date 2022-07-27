@@ -1,0 +1,27 @@
+/*TEXT INPUT STYLING*/
+input {
+	border: none;
+	padding: 4px 4px;
+	margin-right: 6px;
+	border-radius: 3px;
+}
+input:focus, input:active {
+	outline: none;
+	border: 2px solid #bbc29b;
+	background-color: transparent;
+}
+#addBtn {
+	/*height: 2em;*/
+	/*width: 2em;*/
+	background-color: #bbc29b;
+	font-size: 13px;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 3px;
+}
+
+/* INPUT ERROR HIGHLIGHT */
+.inputError {
+	border: 3px solid chocolate;
+	transition: border .25s ease-out;
+}
