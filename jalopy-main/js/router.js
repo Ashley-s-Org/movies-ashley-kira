@@ -71,6 +71,12 @@ export default function router(URI) {
             uri: location.pathname,
             title: 'Loading...',
         },
+        '/myLoading': {
+            returnView: Loading,
+            state: {},
+            uri: '/myLoading',
+            title: 'Loading...',
+        },
         '/movies': {
             returnView: MoviesView,
             state: {

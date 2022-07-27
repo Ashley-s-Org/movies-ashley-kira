@@ -1,11 +1,10 @@
-// import createView from "../createView";
-//
-// export default function Loading(props) {
-//     return `
-//         <div id="loadingIcon"></div>
-//     `;
-// }
-// console.log(Loading);
+import createView from "../createView.js";
+
+export default function Loading(props) {
+    return `
+        <div id="loading"></div>
+    `;
+}
 
 // SELECT LOADING ELEMENT
 const loader = document.querySelector("#loading");
@@ -36,7 +35,7 @@ function fetchHandler(e) {
                 createView('/movies');
             }
         })
-        // .then(json => {
-        //     hideLoading()
-        // })
+    // .then(json => {
+    //     hideLoading()
+    // })
 }
