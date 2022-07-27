@@ -1,10 +1,10 @@
 // import createView from "../createView";
 //
-// export default function Loading(props) {
-//     return `
-//         <div id="loadingIcon"></div>
-//     `;
-// }
+export default function Loading(props) {
+    return `
+        <div id="loadingIcon"></div>
+    `;
+}
 // console.log(Loading);
 
 // SELECT LOADING ELEMENT
