@@ -128,16 +128,18 @@ function addNewMovie() {
         // CONVERT OBJECT INTO STRING ELEMENT FOR FETCH REQUEST
         body: JSON.stringify(newMovie)
     }
-
     console.log('hello, earthling');
-    fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
-        .then(function (response) {
-            if (!response.ok) {
-                // LOG ERROR FOR MOVIE SUBMISSION
-            } else {
-                // ADD MOVIE & REDIRECT WITHIN VIEW
-                createView('/movies');
-            }
-        });
-}
 
+    // FETCH NEW MOVIE DATA
+        fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
+            .then(function (response) {
+                if (!response.ok) {
+                    // LOG ERROR FOR MOVIE SUBMISSION
+                } else {
+                    // ADD MOVIE & REDIRECT WITHIN VIEW
+                    createView('/movies');
+                }
+            })
+
+
+}
