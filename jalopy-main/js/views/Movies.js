@@ -12,6 +12,7 @@ export default function moviesView(props) {
 			<p id="moviesAbout">a handpicked selection of cult classics</a></p>
 		</header>
 		<main>
+		    <div id="left-spacer-div"></div>
 			<div id="movies-div">
 				${addMovies(props.movies)}
 <!--				 DIV CONTAINING BUTTON TO ADD NEW MOVIE-->
@@ -58,42 +59,43 @@ export default function moviesView(props) {
                 <!-- div for edit movie modal				-->
 				<div id="edit-movies">
 				    <div class="modal fade" id="editMovieModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				    <div class="modal-dialog" role="document">
-				        <div class="modal-content">
-				            <div class="modal-header">
-                                <h5 class="modal-title" id="movieModalLabel">Edit a Film:</h5>
-<!--                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">-->
-<!--                                    <span aria-hidden="true">&times;</span>-->
-<!--                                </button>-->
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="movieModalLabel">Edit a Film:</h5>
+    <!--                                <button type="button" class="Close" data-dismiss="modal" aria-label="Close">-->
+    <!--                                    <span aria-hidden="true">&times;</span>-->
+    <!--                                </button>-->
+                                </div>
+                                <div class="modal-body">
+                                    <form id= "create-form">
+                                        <div class="form-group">
+                                            <label for="titleInput">Title:</label>
+                                            <input type="text" class="form-control" id="editMovieText" placeholder="Requiem for a Dream">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="directorInput">Director:</label>
+                                            <input type="text" class="form-control" id="editDirectorText" placeholder="Darren Aronofsky">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="yearInput">Release Year:</label>
+                                            <input type="text" class="form-control" id="editYearText" placeholder="2000">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="ratingInput">MPA Rating:</label>
+                                            <input type="text" class="form-control" id="editRatingText" placeholder="R">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn" data-bs-dismiss="modal" id="addEditedMovieBtn">Add Edited Film</button>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <form id= "create-form">
-                                    <div class="form-group">
-                                        <label for="titleInput">Title:</label>
-                                        <input type="text" class="form-control" id="editMovieText" placeholder="Requiem for a Dream">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="directorInput">Director:</label>
-                                        <input type="text" class="form-control" id="editDirectorText" placeholder="Darren Aronofsky">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="yearInput">Release Year:</label>
-                                        <input type="text" class="form-control" id="editYearText" placeholder="2000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ratingInput">MPA Rating:</label>
-                                        <input type="text" class="form-control" id="editRatingText" placeholder="R">
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn" data-bs-dismiss="modal" id="addEditedMovieBtn">Add Edited Film</button>
-                            </div>
-				        </div>
+                        </div>
 				    </div>
-				</div>
                 </div>
 			</div>
+			<div id="right-spacer-div"></div>
 		</main>
 <!--		${addEventListenersEdit(props.movies)}-->
 	`;
