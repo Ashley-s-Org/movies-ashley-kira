@@ -307,5 +307,4 @@ fetch('https://ballistic-snapdragon-silica.glitch.me/movies', requestOpts)
         }
     })
 
-
 }
